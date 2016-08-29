@@ -6,7 +6,8 @@ angular
         require('angular-ui-router'),
         require('angular-cookies'),
         require('angular-animate'),
-        require('angular-aria')
+        require('angular-aria'),
+        require('angular-material')
     ])
     .config(require('./config'));
 

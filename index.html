@@ -5,20 +5,60 @@
     <title>Jakab Pilaszanovich</title>
     <meta charset="utf-8">
     <base href="/">
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body ng-controller="mainCtrl as main">
-    <div class="profile">
-        <span class="image">
-            <img src="img/portrait.jpg" alt="Jakab Pilaszanovich">
-        </span>
-        <span class="name">
+<body ng-controller="mainCtrl as main" layout="column" ng-cloak>
+    <md-toolbar id="jp-toolbar">
+        <md-list-item>
+            <img src="img/portrait.jpg" class="md-avatar" alt="Jakab Pilaszanovich">
             <span>Jakab Pilaszanovich</span>
-        </span>
+        </md-list-item>
+    </md-toolbar>
+    <div layout="row" flex>
+        <md-sidenav 
+            layout="column" 
+            md-component-id="left" 
+            md-is-locked-open="$mdMedia('gt-sm')"
+            id="jp-sidenav">
+            <md-list md-no-ink>
+                <md-list-item ui-sref="web" ui-sref-active="active">
+                    <md-item-content layout="row" layout-align="start end">
+                        <span>Web</span>
+                    </md-item-content>
+                </md-list-item>
+                <md-list-item ui-sref="interaction" ui-sref-active="active">
+                    <md-item-content layout="row" layout-align="start center">
+                        <span>Interaction</span>
+                    </md-item-content>
+                </md-list-item>
+                <md-list-item ui-sref="visuals" ui-sref-active="active">
+                    <md-item-content layout="row" layout-align="start center">
+                        <span>Visuals</span>
+                    </md-item-content>
+                </md-list-item>
+                <md-list-item ui-sref="sound" ui-sref-active="active">
+                    <md-item-content layout="row" layout-align="start center">
+                        <span>Sound</span>
+                    </md-item-content>
+                </md-list-item>
+                <md-list-item ui-sref="video/Photo" ui-sref-active="active">
+                    <md-item-content layout="row" layout-align="start center">
+                        <span>Video/Photo</span>
+                    </md-item-content>
+                </md-list-item>
+                <md-list-item ui-sref="physics" ui-sref-active="active">
+                    <md-item-content layout="row" layout-align="start center">
+                        <span>Physics</span>
+                    </md-item-content>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+        <md-content flex id="jp-content">
+            <ui-view layout ng-cloak></ui-view>
+        </md-content>
     </div>
-    
     <script type="text/javascript" src="js/bundle.js"></script>
 </body>
 
