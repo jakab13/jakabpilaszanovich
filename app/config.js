@@ -10,11 +10,18 @@ function config($stateProvider, $urlRouterProvider, $locationProvider, $mdThemin
 
     $urlRouterProvider.otherwise('/');
 
-    $stateProvider.state('home', {
+    $stateProvider
+        .state('home', {
             url: '/',
+            templateUrl: '/views/home.html',
             controller: 'mainCtrl',
-            controllerAs: 'main',
-            templateUrl: '/views/main.html'
+            controllerAs: 'main'
+        })
+        .state('project', {
+            url: '/projects/:name',
+            templateUrl: '/views/project.html',
+            controller: 'projectCtrl',
+            controllerAs: 'project'
         });
 
     var JPBgPalette = $mdThemingProvider.extendPalette('grey', {

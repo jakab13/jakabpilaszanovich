@@ -11,6 +11,16 @@ body {
 img {
     width: 100%;
 }
+ui-view, [ui-view] {
+    &.ng-enter {
+        transition: .5s;
+        opacity: 0;
+    }
+
+    &.ng-enter-active {
+        opacity: 1;
+    }
+}
 p:not(:first-child) {
     margin-top: 30px;
 }
@@ -25,12 +35,11 @@ blockquote {
     background: none;
     color: #000;
     md-list-item {
-        margin-left: 200px;
-        margin-top: 15px;
+        margin-left: 160px;
     }
 }
 #jp-sidenav {
-    width: 200px;
+    width: 160px;
     md-list-item {
         font-size: 14px;
         font-weight: 300 !important;
@@ -61,4 +70,24 @@ blockquote {
     max-width: 700px;
     font-size: 18px;
     line-height: 1.58;
+}
+.project-tile {
+    background: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    .tile-header {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    }
+    .tile-footer {
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    }
+    .title {
+        font-size: 18px;
+        font-weight: 400;
+        text-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+}
+.project-title {
+    font-weight: 300;
 }

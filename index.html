@@ -11,10 +11,12 @@
 
 <body ng-controller="mainCtrl as main" layout="column" ng-cloak>
     <md-toolbar id="jp-toolbar">
-        <md-list-item>
-            <img src="img/portrait.jpg" class="md-avatar" alt="Jakab Pilaszanovich">
-            <span>Jakab Pilaszanovich</span>
-        </md-list-item>
+        <md-list md-no-ink>
+            <md-list-item>
+                <img src="img/portrait.jpg" class="md-avatar" alt="Jakab Pilaszanovich" ng-click="main.go('/')">
+                <span ng-click="main.go('/')">Jakab Pilaszanovich</span>
+            </md-list-item>
+        </md-list>
     </md-toolbar>
     <div layout="row" flex>
         <md-sidenav 
@@ -23,6 +25,11 @@
             md-is-locked-open="$mdMedia('gt-sm')"
             id="jp-sidenav">
             <md-list md-no-ink>
+                <md-list-item ui-sref="web" ui-sref-active="active">
+                    <md-item-content layout="row" layout-align="start end">
+                        <span>All</span>
+                    </md-item-content>
+                </md-list-item>
                 <md-list-item ui-sref="web" ui-sref-active="active">
                     <md-item-content layout="row" layout-align="start end">
                         <span>Web</span>
