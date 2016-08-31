@@ -1,5 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800);
 @import url(../../node_modules/angular-material/angular-material.min.css);
+@import url(../../node_modules/photoswipe/dist/photoswipe.css);
+@import url(../../node_modules/photoswipe/dist/default-skin/default-skin.css);
+
 @import 'variables.less';
 
 body {
@@ -75,7 +78,13 @@ blockquote {
     background: no-repeat;
     background-position: center;
     background-size: cover;
-    cursor: pointer;
+    transition: all 0.1s linear;
+    transform: scale(1);
+    &:hover {
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        transform: scale(1.008);
+        cursor: pointer;
+    }
     .tile-header {
         background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
     }
@@ -90,4 +99,33 @@ blockquote {
 }
 .project-title {
     font-weight: 300;
+}
+.photo-tile {
+    background: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: all 0.1s linear;
+    &:hover {
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        cursor: pointer;
+        .tile-header, .tile-footer {
+            opacity: 1;
+        }
+    }
+    .tile-header, .tile-footer {
+        opacity: 0;
+        transition: opacity 0.1s linear;
+    }
+    .tile-header {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+        .title {
+            text-shadow: 0 0 10px rgba(0,0,0,0.6);
+        }
+    }
+    .tile-footer {
+        h3 {
+            font-size: 12px;
+        }
+        background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+    }
 }

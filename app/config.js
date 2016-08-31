@@ -15,13 +15,23 @@ function config($stateProvider, $urlRouterProvider, $locationProvider, $mdThemin
             url: '/',
             templateUrl: '/views/home.html',
             controller: 'mainCtrl',
-            controllerAs: 'main'
+            controllerAs: 'main',
+            resolve: {
+                data: function(MainSrv) {
+                    return MainSrv.init();
+                }
+            }
         })
         .state('project', {
             url: '/projects/:name',
             templateUrl: '/views/project.html',
             controller: 'projectCtrl',
-            controllerAs: 'project'
+            controllerAs: 'project',
+            resolve: {
+                data: function(MainSrv) {
+                    return MainSrv.init();
+                }
+            }
         });
 
     var JPBgPalette = $mdThemingProvider.extendPalette('grey', {

@@ -1,6 +1,110 @@
 [
     {
+        "name": "appetit",
+        "title": "Appetit",
+        "categories": ["interaction", "web"],
+        "skills": ["D3.js", "Angular.js", "Interaction design", "Data visualisation"]
+    },
+    {
+        "name": "cronnection",
+        "title": "Cronnection",
+        "categories": ["web"],
+        "skills": ["HTML5", "CSS3", "Angular.js", "Interface design", "Business development"]
+    },
+    {
+        "name": "moving-forest",
+        "title": "Moving Forest",
+        "categories": ["visuals"],
+        "skills": ["Processing (Java)"]
+    },
+    {
+        "name": "digital-psychedelia",
+        "title": "Digital Psychedelia",
+        "categories": ["interaction", "sound"],
+        "skills": ["Max/MSP", "Node.js", "Interaction design"]
+    },
+    {
         "name": "makar",
-        "title": "Makar"
+        "title": "Makar",
+        "categories": ["interaction", "visuals"],
+        "skills": ["Interaction"]
+    },
+    {
+        "name": "dynamic-digits",
+        "title": "Dynamic Digits",
+        "categories": ["visuals"],
+        "skills": ["Processing (Java)"]
+    },
+    {
+        "name": "pulsing-around",
+        "title": "Pulsing Around",
+        "categories": ["interaction", "sound"],
+        "skills": ["Arduino", "Electronics", "DIY hardware"]
+    },
+    {
+        "name": "talking-herbs",
+        "title": "Talking Herbs",
+        "categories": ["interaction", "sound"],
+        "skills": ["Arduino", "Electronics", "DIY hardware"]
+    },
+    {
+        "name": "dinner-teaser",
+        "title": "Dinner Teaser",
+        "categories": ["video/photo"],
+        "skills": ["Video"]
+    },
+    {
+        "name": "maluma",
+        "title": "Maluma",
+        "categories": ["video/photo"],
+        "skills": ["Video", "Ableton Live"]
+    },
+    {
+        "name": "sound-sets",
+        "title": "Sound Sets",
+        "categories": ["interaction", "sound"],
+        "skills": ["Max/MSP", "Ableton Live"]
+    },
+    {
+        "name": "screen-kid",
+        "title": "Screen Kid",
+        "categories": ["sound"],
+        "skills": ["Drums", "Ableton Live", "Performance"]
+    },
+    {
+        "name": "sound-localisation",
+        "title": "Sound Localisation",
+        "categories": ["physics", "sound"],
+        "skills": ["Research", "Experiment"]
+    },
+    {
+        "name": "wave-power",
+        "title": "Wave Power",
+        "categories": ["physics"],
+        "skills": ["Research", "Experiment"]
+    },
+    {
+        "name": "afium",
+        "title": "Afium",
+        "categories": ["sound"],
+        "skills": ["Common Lisp Music", "Composition", "Research"]
+    },
+    {
+        "name": "morphing",
+        "title": "Morphing",
+        "categories": ["interaction", "sound"],
+        "skills": ["Max/MSP", "Performance"]
+    },
+    {
+        "name": "photography",
+        "title": "Photography",
+        "categories": ["video/photo"],
+        "skills": []
+    },
+    {
+        "name": "necrotopia",
+        "title": "Necrotopia",
+        "categories": ["interaction"],
+        "skills": ["Interaction design"]
     }
 ]

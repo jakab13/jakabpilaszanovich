@@ -77,13 +77,18 @@ gulp.task('copy-data', function(){
 });
 
 gulp.task('copy-images', function() {
-    return gulp.src('./assets/img/**/*.*')
+    return gulp.src(['./assets/img/**/*.*', '!./assets/img/photoswipe/*.*'])
         .pipe(cache(imageoptim({
             optimizationLevel: 10,
             progressive: true,
             interlaced: true
         })))
         .pipe(gulp.dest(distRoot + '/img'));
+});
+
+gulp.task('copy-photoswipe-images', function() {
+    return gulp.src('./assets/img/photoswipe/*.*')
+        .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('watch', function() {
@@ -101,7 +106,8 @@ gulp.task('build', ['clean'], function() {
         'copy-views',
         'copy-fonts',
         'copy-data',
-        'copy-images'
+        'copy-images',
+        'copy-photoswipe-images'
     ]);
 });
 

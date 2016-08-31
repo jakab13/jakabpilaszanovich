@@ -1,0 +1,31 @@
+<div layout="column" ng-controller="photoCtrl as photo">
+    <h1 class="project-title">Photogpraphy</h1>
+    <p>This is a random collection of photos that I took in the last couple of years with digital and film cameras.</p>
+    <md-grid-list
+        flex
+        class="photo-list"
+        md-cols="2"
+        md-row-height="4:3"
+        md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="4px">
+      <md-grid-tile
+            class="photo-tile"
+            ng-click="photo.showGallery($index)"
+            ng-repeat="p in photo.photos track by $index"
+            ng-style="{
+                'background-image': 'url(' + p.src + ')'
+            }"
+            md-colspan-gt-sm="1"
+            md-rowspan-gt-sm="1">
+            <md-grid-tile-header class="tile-header">
+                <h3 ng-bind="p.title" class="title"></h3>
+            </md-grid-tile-header>
+            <md-grid-tile-footer class="tile-footer">
+                <h3 class="date" ng-bind="p.date">
+                </h3>
+            </md-grid-tile-footer>
+      </md-grid-tile>
+    </md-grid-list>
+
+    <div ng-photoswipe slides="photo.photos" open="photo.open" slide-selector=".photo-list > .photo-tile"
+        on-close="photo.closeGallery()" options="photo.options"></div>
+</div>
