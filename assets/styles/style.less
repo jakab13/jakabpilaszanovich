@@ -44,9 +44,6 @@ blockquote {
 #jp-toolbar {
     background: none;
     color: #000;
-    md-list-item {
-        margin-left: 160px;
-    }
 }
 #jp-sidenav {
     width: 160px;
@@ -140,5 +137,20 @@ blockquote {
             font-size: 12px;
         }
         background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+    }
+}
+
+.sidebar-right {
+    width: 0;
+}
+
+@media (min-width: 960px) {
+    .sidebar-right {
+        width: 160px;
+    }
+    #jp-toolbar {
+        md-list-item {
+            margin-left: 160px;
+        }
     }
 }
