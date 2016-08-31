@@ -12,6 +12,10 @@ function mainController($rootScope, $stateParams, $location, MainSrv) {
         $location.path(path);
     };
 
+    self.redirect = function(url) {
+        $location.path(url);
+    };
+
     self.filter = function(url) {
         var path = '/' + url;
         $location.path(path);

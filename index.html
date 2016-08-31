@@ -4,6 +4,7 @@
 <head>
     <title>Jakab Pilaszanovich</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1" />
     <base href="/">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -14,7 +15,7 @@
         <md-list md-no-ink>
             <md-list-item>
                 <img src="img/portrait.jpg" class="md-avatar" alt="Jakab Pilaszanovich" ng-click="main.go('/')">
-                <span ng-click="main.filter('/')">Jakab Pilaszanovich</span>
+                <span ng-click="main.go('/')">Jakab Pilaszanovich</span>
             </md-list-item>
         </md-list>
     </md-toolbar>
@@ -58,6 +59,13 @@
                 <md-list-item ng-click="main.filter('physics')" ng-class="{'active': categoryFilter == 'physics'}">
                     <md-item-content layout="row" layout-align="start center">
                         <span>Physics</span>
+                    </md-item-content>
+                </md-list-item>
+            </md-list>
+            <md-list md-no-ink>
+                <md-list-item ng-click="main.redirect('/contact')">
+                    <md-item-content layout="row" layout-align="start end" style="color: #999; margin-top: 40px;">
+                        <span>Contact</span>
                     </md-item-content>
                 </md-list-item>
             </md-list>
