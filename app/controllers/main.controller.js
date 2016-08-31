@@ -2,9 +2,9 @@
 
 module.exports = mainController;
 
-mainController.$inject =  ['$stateParams', '$location', 'MainSrv'];
+mainController.$inject =  ['$rootScope', '$stateParams', '$location', 'MainSrv'];
 
-function mainController($stateParams, $location, MainSrv) {
+function mainController($rootScope, $stateParams, $location, MainSrv) {
     var self = this;
 
     self.go = function(url) {
@@ -20,6 +20,7 @@ function mainController($stateParams, $location, MainSrv) {
     var category = $stateParams.category;
 
     self.categoryFilter = category;
+    $rootScope.categoryFilter = category
 
     self.projects = MainSrv.projects;
 

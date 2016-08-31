@@ -9,53 +9,53 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body ng-controller="mainCtrl as main" layout="column" ng-cloak>
+<body ng-controller="mainCtrl as main" layout="column" flex ng-cloak>
     <md-toolbar id="jp-toolbar">
         <md-list md-no-ink>
             <md-list-item>
                 <img src="img/portrait.jpg" class="md-avatar" alt="Jakab Pilaszanovich" ng-click="main.go('/')">
-                <span ng-click="main.go('/')">Jakab Pilaszanovich</span>
+                <span ng-click="main.filter('/')">Jakab Pilaszanovich</span>
             </md-list-item>
         </md-list>
     </md-toolbar>
     <div layout="row" flex>
-        <md-sidenav 
+        <md-sidenav
             layout="column" 
             md-component-id="left" 
             md-is-locked-open="$mdMedia('gt-sm')"
             id="jp-sidenav">
             <md-list md-no-ink>
-                <md-list-item ui-sref="home" ui-sref-active="active">
+                <md-list-item ng-click="main.filter('')" ng-class="{'active': categoryFilter == undefined}">
                     <md-item-content layout="row" layout-align="start end">
                         <span>All</span>
                     </md-item-content>
                 </md-list-item>
-                <md-list-item ng-click="main.filter('web')">
+                <md-list-item ng-click="main.filter('web')" ng-class="{'active': categoryFilter == 'web'}">
                     <md-item-content layout="row" layout-align="start end">
                         <span>Web</span>
                     </md-item-content>
                 </md-list-item>
-                <md-list-item ng-click="main.filter('interaction')">
+                <md-list-item ng-click="main.filter('interaction')" ng-class="{'active': categoryFilter == 'interaction'}">
                     <md-item-content layout="row" layout-align="start center">
                         <span>Interaction</span>
                     </md-item-content>
                 </md-list-item>
-                <md-list-item ng-click="main.filter('visuals')">
+                <md-list-item ng-click="main.filter('visuals')" ng-class="{'active': categoryFilter == 'visuals'}">
                     <md-item-content layout="row" layout-align="start center">
                         <span>Visuals</span>
                     </md-item-content>
                 </md-list-item>
-                <md-list-item ng-click="main.filter('sound')">
+                <md-list-item ng-click="main.filter('sound')" ng-class="{'active': categoryFilter == 'sound'}">
                     <md-item-content layout="row" layout-align="start center">
                         <span>Sound</span>
                     </md-item-content>
                 </md-list-item>
-                <md-list-item ng-click="main.filter('video-photo')">
+                <md-list-item ng-click="main.filter('video-photo')" ng-class="{'active': categoryFilter == 'video-photo'}">
                     <md-item-content layout="row" layout-align="start center">
                         <span>Video/Photo</span>
                     </md-item-content>
                 </md-list-item>
-                <md-list-item ng-click="main.filter('physics')">
+                <md-list-item ng-click="main.filter('physics')" ng-class="{'active': categoryFilter == 'physics'}">
                     <md-item-content layout="row" layout-align="start center">
                         <span>Physics</span>
                     </md-item-content>
@@ -63,7 +63,7 @@
             </md-list>
         </md-sidenav>
         <md-content flex id="jp-content">
-            <ui-view layout ng-cloak></ui-view>
+            <div ui-view layout ng-cloak></div>
         </md-content>
     </div>
     <script type="text/javascript" src="js/bundle.js"></script>

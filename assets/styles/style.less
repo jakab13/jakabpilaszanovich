@@ -14,14 +14,21 @@ body {
 img {
     width: 100%;
 }
-ui-view, [ui-view] {
+[ui-view] {
+    transition: opacity 0.3s;
     &.ng-enter {
-        transition: .5s;
-        opacity: 0;
+        
+        opacity: 0 !important;
     }
-
     &.ng-enter-active {
         opacity: 1;
+    }
+    &.ng-leave {
+        transition: none;
+        opacity: 1;
+    }
+    &.ng-leave-active {
+        opacity: 0;
     }
 }
 p:not(:first-child) {
@@ -46,6 +53,12 @@ blockquote {
     md-list-item {
         font-size: 14px;
         font-weight: 300 !important;
+        &.active {
+            color: @active-color;
+            button {
+                border-right: 1px solid fadeOut(@active-color, 70);
+            }
+        }
     }
     .md-list-item-inner {
         justify-content: flex-end;
