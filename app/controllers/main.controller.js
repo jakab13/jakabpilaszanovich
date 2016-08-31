@@ -2,15 +2,24 @@
 
 module.exports = mainController;
 
-mainController.$inject =  ['$location', 'MainSrv'];
+mainController.$inject =  ['$stateParams', '$location', 'MainSrv'];
 
-function mainController($location, MainSrv) {
+function mainController($stateParams, $location, MainSrv) {
     var self = this;
 
     self.go = function(url) {
         var path = '/projects/' + url;
         $location.path(path);
     };
+
+    self.filter = function(url) {
+        var path = '/' + url;
+        $location.path(path);
+    };
+
+    var category = $stateParams.category;
+
+    self.categoryFilter = category;
 
     self.projects = MainSrv.projects;
 

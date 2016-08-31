@@ -50,13 +50,13 @@
     {
         "name": "dinner-teaser",
         "title": "Dinner Teaser",
-        "categories": ["video/photo"],
+        "categories": ["video-photo"],
         "skills": ["Video"]
     },
     {
         "name": "maluma",
         "title": "Maluma",
-        "categories": ["video/photo"],
+        "categories": ["video-photo"],
         "skills": ["Video", "Ableton Live"]
     },
     {
@@ -98,7 +98,7 @@
     {
         "name": "photography",
         "title": "Photography",
-        "categories": ["video/photo"],
+        "categories": ["video-photo"],
         "skills": []
     },
     {

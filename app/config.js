@@ -22,6 +22,17 @@ function config($stateProvider, $urlRouterProvider, $locationProvider, $mdThemin
                 }
             }
         })
+        .state('category', {
+            url: '/:category',
+            templateUrl: '/views/home.html',
+            controller: 'mainCtrl',
+            controllerAs: 'main',
+            resolve: {
+                data: function(MainSrv) {
+                    return MainSrv.init();
+                }
+            }
+        })
         .state('project', {
             url: '/projects/:name',
             templateUrl: '/views/project.html',

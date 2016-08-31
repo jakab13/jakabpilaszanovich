@@ -7,7 +7,7 @@
       <md-grid-tile
             class="project-tile"
             ng-click="main.go(project.name)"
-            ng-repeat="project in main.projects"
+            ng-repeat="project in main.projects | category: main.categoryFilter"
             ng-style="{
                 'background-image': 'url(' + project.image + ')'
             }"

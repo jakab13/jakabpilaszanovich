@@ -1,4 +1,4 @@
 'use strict';
 
-// angular.module('CoralApp')
-//     .filter('example', require('./example.filter'));
+angular.module('JPApp')
+    .filter('category', require('./category.filter'));
