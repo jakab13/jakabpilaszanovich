@@ -14,6 +14,14 @@ body {
 img {
     width: 100%;
 }
+.pointer {
+    &:hover {
+        cursor: pointer;
+    }
+}
+*:focus {
+    outline-width: 0;
+}
 [ui-view] {
     transition: opacity 0.3s;
     &.ng-enter {
@@ -44,9 +52,18 @@ blockquote {
 #jp-toolbar {
     background: none;
     color: #000;
+    md-list-item {
+        cursor: default;
+    }
+    .top-category {
+        font-size: 14px;
+        color: @active-color;
+    }
 }
 #jp-sidenav {
     width: 160px;
+    max-width: 160px;
+    min-width: 160px;
     md-list-item {
         font-size: 14px;
         font-weight: 300 !important;
@@ -141,16 +158,27 @@ blockquote {
 }
 
 .sidebar-right {
-    width: 0;
+    width: 160px;
+    display: none;
 }
 
 @media (min-width: 960px) {
-    .sidebar-right {
-        width: 160px;
-    }
     #jp-toolbar {
         md-list-item {
             margin-left: 160px;
         }
     }
+}
+@media (min-width: 720px) {
+    .sidebar-right {
+        display: block;
+    }
+}
+.grid-list {
+    max-width: 1200px;
+}
+.skill-list-item {
+    min-height: 30px;
+    height: 30px;
+    font-size: 14px;
 }

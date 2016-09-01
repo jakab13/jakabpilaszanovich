@@ -14,8 +14,11 @@
     <md-toolbar id="jp-toolbar">
         <md-list md-no-ink>
             <md-list-item>
-                <img src="img/portrait.jpg" class="md-avatar" alt="Jakab Pilaszanovich" ng-click="main.go('/')">
-                <span ng-click="main.go('/')">Jakab Pilaszanovich</span>
+                <img src="img/portrait.jpg" class="md-avatar pointer profile" alt="Jakab Pilaszanovich" ng-click="main.redirect('/')" hide-xs hide-sm hide-md>
+                <img src="img/portrait.jpg" class="md-avatar pointer profile" alt="Jakab Pilaszanovich" ng-click="main.toggleLeft()" hide-gt-md>
+                <span class="pointer profile" flex ng-click="main.redirect('/')" hide-xs hide-sm hide-md>Jakab Pilaszanovich</span>
+                <span class="pointer profile" flex ng-click="main.toggleLeft()" hide-gt-md>Jakab Pilaszanovich</span>
+                <span class="top-category pointer" ng-bind="categoryFilter" ng-click="main.toggleLeft()" hide-gt-sm></span>
             </md-list-item>
         </md-list>
     </md-toolbar>

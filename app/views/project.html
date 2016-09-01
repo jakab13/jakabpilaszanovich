@@ -3,4 +3,12 @@
         src="project.projectUrl"></ng-include>
 </div>
 <div class="sidebar-right">
+    <md-list md-no-ink>
+        <md-list-item>
+            <h3>Skills</h3>
+        </md-list-item>
+        <md-list-item class="skill-list-item" ng-repeat="skill in project.projectData.skills">
+            <span ng-bind="skill"></span>
+        </md-list-item>
+    </md-list>
 </div>
