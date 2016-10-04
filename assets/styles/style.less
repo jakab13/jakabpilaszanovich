@@ -182,3 +182,37 @@ blockquote {
     height: 30px;
     font-size: 14px;
 }
+
+.bws-test {
+    width: 600px;
+    .equation {
+        margin-top: 10px;
+    }
+    .pair {
+        position: relative;
+        .pair-sum {
+            position: absolute;
+            bottom: 100%;
+            left: 20px;
+            font-size: 12px;
+        }
+    }
+    .result {
+        margin-top: 10px;
+        font-size: 44px;
+        color: @active-color;
+    }
+    .input-container {
+        width: 100%;
+    }
+    .submit-button, .show-code-button {
+        color: @active-color;
+        border: 1px solid @active-color;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+}
+pre {
+    background-color: rgb(248,248,248);
+    overflow: auto;
+}

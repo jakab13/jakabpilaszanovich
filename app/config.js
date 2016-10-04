@@ -54,6 +54,17 @@ function config($stateProvider, $urlRouterProvider, $locationProvider, $mdThemin
                     return MainSrv.init();
                 }
             }
+        })
+        .state('bws-test', {
+            url: '/test/bws',
+            templateUrl: '/views/test/bws.html',
+            controller: 'bwsCtrl',
+            controllerAs: 'bws',
+            resolve: {
+                data: function(MainSrv) {
+                    return MainSrv.init();
+                }
+            }
         });
 
     var JPBgPalette = $mdThemingProvider.extendPalette('grey', {

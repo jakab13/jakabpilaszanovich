@@ -1,0 +1,218 @@
+<div flex layout="column" layout-align="center center" ng-init="bws.getMax()">
+    <div class="bws-test">
+        <h1>Blackwoodseven test</h1>
+        <h3>Task</h3>
+        <blockquote>
+            You are given a list of integers, both positive and negative. Each integer in the list must either be paired with another element in the list or be a single element. Once the elements have been paired, the integers in the pairs are multiplied and the results are summed up - the sum will include the single elements. Find the biggest possible sum.
+        </blockquote>
+        <h3>Solution</h3>
+        <form ng-submit="bws.getMax()" flex layout layout-align="center center">
+             <md-input-container class="input-container">
+                <label>Integers</label>
+                <input ng-model="bws.integers" ng-list required>
+                <md-button type="submit" class="submit-button">Get Max</md-button>
+            </md-input-container>
+        </form>
+        <div flex layout="column" layout-align="center center">
+            <div class="equation">
+                <span ng-repeat="pair in bws.result.pairs">
+                    <span class="pair">
+                        (
+                        <span ng-repeat="num in pair track by $index">
+                            {{num}}
+                            <span>{{$last ? '' : 'x'}}</span>
+                        </span>
+                        )
+                        <span class="pair-sum">{{pair[0] * pair[1]}}</span>
+                    </span>
+                    {{!!!bws.result.singles.length ? '=' : '+ '}}
+                </span>
+                <span ng-repeat="single in bws.result.singles track by $index" class="single">{{single}} {{$last ? '=' : '+ '}}</span>
+            </div>
+            <div class="result">{{bws.result.value}}</div>
+        </div>
+        <h3>Explanation</h3>
+        <p>
+            I had these main assumptions:
+            <ol>
+                <li>
+                    The largest integer multiplications will give the biggest possible sum
+                </li>
+                <li>
+                    Multiplying two negative integers is larger than one negative and one positive
+                </li>
+                <li>
+                    Two integers should be paired up if their multiplication is larger than their sum (a*b > a+b ?)
+                </li>
+            </ol>
+        </p>
+        <p>
+            For this type of excercise I decided to use a recursive algorithm to check for the values if they should be paired up or saved as single elements. The recursion checks if the multiplication of the first element of the array with the second one is bigger than their sum. If yes, it saves the values as pairs, deletes them from the original and starts the same process with the next element in the array. If not, it moves to the next element in the array and runs the recursion again. If it reaches the end of the array without 'finding' a pair, it saves the value as a single element, deletes it from the original and runs the recursion until the array has a length.
+        </p>
+        <p>
+            So as a first step I sorted the integers with their absolute value.
+        </p>
+        <pre>
+            <code>
+    function sortAbs(a, b) {
+        return Math.abs(a) < Math.abs(b) ? 1: -1;
+    }
+            </code>
+        </pre>
+        <p>
+            Then I created the recursive funcion 'isPairOrSingle' where the inputs are an array and the index at which the pair should be found. If the multiplication is smaller than the addition, it should move on to the next element. Else...
+        </p>
+        <pre>
+            <code>
+    function isPairOrSingle(array, index) {
+        ...
+        if (multiply < addition) {
+            return isPairOrSingle(array, index + 1);
+        } else {
+            ...
+        }
+    }
+            </code>
+        </pre>
+        <p>
+            If the multiplication is bigger than the addition, the pair is accepted. It is saved in a local variable, their multiplication is added to the final result and their values are deleted from the original array. This new array is then passed in to the recursive function again to find a pair for the next element.
+        </p>
+        <pre>
+            <code>
+    function isPairOrSingle(array, index, result) {
+
+        ...
+        // Define a local variable to save the results
+        result = result || {"pairs": [], "singles": [], "value": 0};
+        ...
+
+        if (multiply < addition) {
+
+            return isPairOrSingle(array, index + 1, result);
+
+        } else {
+
+            // Save the pair in a local variable
+            result.pairs.push([array[0], array[index]]);
+
+            // Add the value to the final result
+            result.value += multiply;
+
+            // Delete elements from the array
+            array.splice(index, 1);
+            array.splice(0, 1);
+
+            // Run the recursive function with the updated array
+            return isPairOrSingle(array, 1, result);
+
+        }
+        ...
+    }
+            </code>
+        </pre>
+        <p>
+            Then I had to check if looking for the pair came to the last element in the array. If yes, the element is saved as a single, it's deleted from the original array and the recursion is run again with the modified array. If the array has no more elements the final result is returned by the function.
+        </p>
+        <pre>
+            <code>
+    function isPairOrSingle(array, index, result) {
+        ...
+
+        if (index < length) {
+            ...
+
+        } else if (length != 0) {
+
+            // Save the element as a single
+            result.singles.push(array[0]);
+
+            // Add the value to the final result
+            result.value += array[0];
+
+            // Delete the element from the array
+            array.splice(0, 1);
+
+            // Run the recursive function with the updated array
+            return isPairOrSingle(array, 1, result);
+
+        } else {
+
+        return result;
+    }
+            </code>
+        </pre>
+        <p>See the full code</p>
+        <md-button ng-click="bws.showCode = !bws.showCode" class="show-code-button">{{bws.showCode ? 'Hide' : 'Show'}} full code</md-button>
+        <pre ng-show="bws.showCode">
+            <code>
+    function getMax() {
+        var input = angular.copy(self.integers);
+        var integerInput = input.map(convertToInteger);
+        var sortedInput = integerInput.sort(sortAbs);
+        self.result = isPairOrSingle(sortedInput);
+    }
+
+    function convertToInteger(a) { 
+        return parseInt(a, 10);
+    }
+
+    function sortAbs(a, b) {
+        return Math.abs(a) < Math.abs(b) ? 1: -1;
+    }
+
+    function isPairOrSingle(array, index, result) {
+        var length = array.length;
+        index = index || 1;
+
+        // Define a local variable to save the results
+        result = result || {"pairs": [], "singles": [], "value": 0};
+
+        if (index < length) {
+
+            var multiply = array[0] * array[index];
+            var addition = array[0] + array[index];
+
+            // Check if multiplication is smaller than addition
+            if (multiply < addition) {
+
+                return isPairOrSingle(array, index + 1, result);
+
+            } else {
+                // Save the pair in a local variable
+                result.pairs.push([array[0], array[index]]);
+
+                // Add the value to the final result
+                result.value += multiply;
+
+                // Delete elements from the array
+                array.splice(index, 1);
+                array.splice(0, 1);
+
+                // Run the recursive function with the updated array
+                return isPairOrSingle(array, 1, result);
+            }
+
+        } else if (length != 0) {
+
+            // Save the element as a single
+            result.singles.push(array[0]);
+
+            // Add the value to the final result
+            result.value += array[0];
+
+            // Delete the element from the array
+            array.splice(0, 1);
+
+            // Run the recursive function with the updated array
+            return isPairOrSingle(array, 1, result);
+
+        } else {
+
+            return result;
+
+        }
+    }
+            </code>
+        </pre>
+    </div>
+</div>

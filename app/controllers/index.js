@@ -3,4 +3,5 @@
 angular.module('JPApp')
     .controller('mainCtrl', require('./main.controller'))
     .controller('projectCtrl', require('./project.controller'))
-    .controller('photoCtrl', require('./photo.controller'));
+    .controller('photoCtrl', require('./photo.controller'))
+    .controller('bwsCtrl', require('./bws.controller'));
